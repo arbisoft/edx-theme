@@ -1,0 +1,29 @@
+## mako
+<%! from django.utils.translation import ugettext as _ %>
+${_("Thank you for registering for "
+"{platform_name} courses. Please note that you will not be able to log back into your account until "
+"you have activated it.").format(platform_name=platform_name)}
+
+% if is_secure:
+Activation link: https://${ site }/activate/${ key }
+% else:
+Activation link: http://${ site }/activate/${ key }
+% endif
+
+${_("In case of any queries, please feel free to contact us at {numbers} or email us at {emails}").format(
+numbers='0323-4919715 - 0342-9738872', emails='abdullah@arbisoft.com - sabeen.nasar@arbisoft.com')}
+
+${_("Note: Please use the same email address through which you registered for the test."
+"In-case there is a discrepancy, the system won’t allow you to log in.")}
+
+${_("Best,")}
+
+${_("People Operations & Development")}
+
+${_("Arbisoft (Pvt.) Ltd.")}
+
+
+${_("This email message was automatically sent by {lms_url} because someone attempted to create an "
+"account on {platform_name} using this email address.").format(
+  lms_url=lms_url, platform_name=platform_name
+)}
