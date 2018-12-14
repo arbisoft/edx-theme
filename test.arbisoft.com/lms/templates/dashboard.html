@@ -4,6 +4,7 @@
 <%namespace name='static' file='static_content.html'/>
 <%!
 import pytz
+from dateutil.parser import parse
 from datetime import datetime, timedelta
 from django.urls import reverse
 from django.utils.translation import ugettext as _
@@ -23,7 +24,11 @@ from student.models import CourseEnrollment
 <%
   cert_name_short = settings.CERT_NAME_SHORT
   cert_name_long = settings.CERT_NAME_LONG
-  test_date = configuration_helpers.get_value('ONLINE_TEST_DATE', '')
+  pk_tz = pytz.timezone('Asia/Karachi')
+  test_datetime = configuration_helpers.get_value('ONLINE_TEST_DATE', '2025-01-01')
+  parsed_test_datetime = parse(test_datetime)
+  local_test_datetime = pk_tz.localize(parsed_test_datetime)
+  current_datetime = datetime.now(pk_tz)
   test_course_link = configuration_helpers.get_value('TEST_COURSE_LINK', '#')
 %>
 
@@ -196,22 +201,35 @@ from student.models import CourseEnrollment
           % else:
             <div class="empty-dashboard-message">
               % if display_dashboard_courses:
-                <p style="line-height: 2em">
-                    ${_("Thank you for registering for the online test. You can attempt the test on {test_date} by clicking on the button below.").format(test_date=test_date)}
-                </p>
-                <p style="line-height: 2em">
-                    <a href="${test_course_link}">Test Link</a>
-                </p>
-                <p style="line-height: 2em">
-                    ${Text(_("In case of any queries, please feel free to contact us at {strong_start}0323-4919715 - 0342-9738872{strong_end} or email us at {link_start}abdullah@arbisoft.com{link_end} - {link_start}sabeen.nasar@arbisoft.com{link_end}")).format(
-                        strong_start=HTML('<strong>'),
-                        strong_end=HTML('</strong>'),
-                        link_start=HTML('<a href="mailto">'),
-                        link_end=HTML('</a>'),
-                    )}
-                </p>
-
-
+                <div class="test-info-container">
+                  % if current_datetime < local_test_datetime:
+                  <div class="test-due">
+                    <p style="line-height: 2em">
+                        ${_("Thank you for registering for the online test. You can attempt the test on {test_datetime} by clicking on the button below.").format(test_datetime=test_datetime)}
+                    </p>
+                    <p style="line-height: 2em">
+                        <a href="${test_course_link}">Test Link</a>
+                    </p>
+                    <p style="line-height: 2em">
+                        ${Text(_("In case of any queries, please feel free to contact us at {strong_start}0323-4919715 - 0342-9738872{strong_end} or email us at {link_start}abdullah@arbisoft.com{link_end} - {link_start}sabeen.nasar@arbisoft.com{link_end}")).format(
+                            strong_start=HTML('<strong>'),
+                            strong_end=HTML('</strong>'),
+                            link_start=HTML('<a href="mailto">'),
+                            link_end=HTML('</a>'),
+                        )}
+                    </p>
+                  </div>
+                  % else:
+                  <div class="test-passed">
+                    <p style="line-height: 2em">
+                        ${_("Test started on {test_datetime}. Click the link below to access it or check your progress if you have already completed it.").format(test_datetime=test_datetime)}
+                    </p>
+                    <p style="line-height: 2em">
+                        <a href="${test_course_link}">Test Link</a>
+                    </p>
+                  </div>
+                  % endif
+                </div>
                 % if empty_dashboard_message:
                   <p class="custom-message">${empty_dashboard_message | n, decode.utf8}</p>
                 %endif
@@ -246,6 +264,12 @@ from student.models import CourseEnrollment
         </div>
       </div>
       <div class="side-container">
+        % if current_datetime < local_test_datetime:
+          <div class="sidebar-timer">
+            <%include file="${static.get_template_path('timer_sidebar.html')}" />
+          </div>
+        %endif
+
         %if display_sidebar_account_activation_message:
           <div class="sidebar-notification">
             <%include file="${static.get_template_path('registration/account_activation_sidebar_notice.html')}" />

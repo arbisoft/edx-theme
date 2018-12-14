@@ -13,8 +13,8 @@ Activation link: http://${ site }/activate/${ key }
 ${_("In case of any queries, please feel free to contact us at {numbers} or email us at {emails}").format(
 numbers='0323-4919715 - 0342-9738872', emails='abdullah@arbisoft.com - sabeen.nasar@arbisoft.com')}
 
-${_("Note: Please use the same email address through which you registered for the test."
-"In-case there is a discrepancy, the system won’t allow you to log in.")}
+${_("Note: Please use the same email address through which you registered for the test. "
+"In-case there is a discrepancy, the system won't allow you to log in.")}
 
 ${_("Best,")}
 
