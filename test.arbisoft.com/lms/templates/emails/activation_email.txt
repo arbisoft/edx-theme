@@ -1,7 +1,7 @@
 ## mako
 <%! from django.utils.translation import ugettext as _ %>
 ${_("Thank you for registering for "
-"{platform_name} courses. Please note that you will not be able to log back into your account until "
+"{platform_name}. Please note that you will not be able to log back into your account until "
 "you have activated it.").format(platform_name=platform_name)}
 
 % if is_secure:
