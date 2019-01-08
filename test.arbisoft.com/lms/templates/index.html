@@ -6,15 +6,52 @@ from django.utils.translation import ugettext as _
 from django.urls import reverse
 
 from openedx.core.djangolib.markup import HTML, Text
+
+import pytz
+from dateutil.parser import parse
+from datetime import datetime, timedelta
+from django.urls import reverse
+from django.utils.translation import ugettext as _
+from django.template import RequestContext
+from entitlements.models import CourseEntitlement
+from third_party_auth import pipeline
+from util.date_utils import strftime_localized
+from opaque_keys.edx.keys import CourseKey
+from openedx.core.djangoapps.content.course_overviews.models import CourseOverview
+from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+from openedx.core.djangolib.js_utils import dump_js_escaped_json, js_escaped_string
+from openedx.core.djangolib.markup import HTML, Text
+
+from student.models import CourseEnrollment
 %>
 
-<div class="title" style="text-align: center">
-<img src="//arbisoft.com/static/media/uploads/img2.jpg" alt="${platform_name}" />
-<p>
-  <h2>${platform_name}</h2>
-  <button type="submit" class="action action-primary register-button" onclick="location.href='/register'">Register Here</button>
-</p>
+<%
+  pk_tz = pytz.timezone('Asia/Karachi')
+  test_datetime = configuration_helpers.get_value('ONLINE_TEST_DATE', '2025-01-01')
+  parsed_test_datetime = parse(test_datetime)
+  local_test_datetime = pk_tz.localize(parsed_test_datetime)
+  current_datetime = datetime.now(pk_tz)
+%>
+
+<div class="banner">
+  <div class="block">
+    <div class="holder">
+        <div class="outer-container">
+          <div class="left-col">
+            <h1>Arbisoft Fresh Grads Online Recruitment Test 23rd February 2019</h1>
+            <button type="submit" class="action action-primary register-button" onclick="location.href='/register'">Register</button>
+            <button type="submit" class="action action-primary register-button" onclick="location.href='/login'">Login</button>
+          </div>
+          % if current_datetime < local_test_datetime:
+            <div class="sidebar-timer">
+              <%include file="${static.get_template_path('timer_sidebar.html')}" />
+            </div>
+          %endif
+        </div>
+    </div>
+  </div>
 </div>
+
 
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
@@ -41,6 +78,8 @@ from openedx.core.djangolib.markup import HTML, Text
       })
    </script>
 </%block>
+
+<%block name="bodyclass">home-page-test</%block>
 
 % if show_signup_immediately is not UNDEFINED:
   ## NOTE: This won't work in production, because anonymous views are cached, so it will
