@@ -1,0 +1,76 @@
+@mixin inline-block-middle() {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin size-d($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null, $zindex:null) {
+	position: $position;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	z-index: $zindex;
+}
+
+// Media Quries for responsive screens
+@mixin MQ($canvas) {
+  @if $canvas == min-tablet {
+    @media only screen and (min-width: $S) {
+      @content;
+    }
+
+  } @else if $canvas == min-desktop {
+    @media only screen and (min-width: $M) {
+      @content;
+    }
+
+  } @else if $canvas == min-large {
+    @media only screen and (min-width: $L) {
+      @content;
+    }
+
+  } @else if $canvas == max-smallmobile {
+	  $xs-smallmobile: $SM - 1;
+    @media only screen and (max-width: $xs-smallmobile) {
+      @content;
+    }
+
+  } @else if $canvas == max-mobile {
+    $xs-mobile: $S - 1;
+    @media only screen and (max-width: $xs-mobile) {
+      @content;
+    }
+
+  } @else if $canvas == max-tablet {
+    $tablet: $M - 1;
+    @media only screen and (max-width: $tablet) {
+      @content;
+    }
+
+  } @else if $canvas == max-desktop {
+    @media only screen and (max-width: $L) {
+      @content;
+    }
+
+  }
+  @else if $canvas == max-exdesktop {
+    @media only screen and (max-width: $EXL) {
+      @content;
+    }
+
+  } @else if $canvas == max-mid {
+    @media only screen and (min-width: $M) and (max-width: $L) {
+      @content;
+    }
+  }
+}
