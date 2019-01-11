@@ -28,8 +28,14 @@ a, button {
     background: $sky;
     border: 0;
     box-shadow: none;
-    padding: 20px 0;
-    @include MQ(max-mobile) { padding: 15px 0; }
+    padding: 16px 20px;
+    @include MQ(max-mobile) { padding: 15px; }
+    &:after {
+        display: block;
+        clear: both;
+        content: '';
+    }
+    .outer-container { max-width: inherit !important; }
     .main-header {
         @include MQ(max-tablet) { text-align: center; }
     }
@@ -49,15 +55,36 @@ a, button {
             right: 0;
         }
     }
+    .nav-links {
+        .secondary {
+            margin: 7px 0 0;
+            .dropdown-user-menu { top: 83px; }
+        }
+    }
 }
-.outer-container {
-    max-width: 1200px;
-    padding: 0 15px;
-    margin: 0 auto;
+.outer-container, .page-content-container, .content-wrapper .course-tabs, .wrapper-preview-menu .preview-menu, .view-in-course .container {
+    max-width: 1200px !important;
+    padding: 0 15px !important;
+    margin: 0 auto !important;
     &:after {
         display: block;
         clear: both;
         content: '';
+    }
+}
+.page-content-container, .view-in-course .container { margin: 0 auto 20px !important; }
+.wrapper-preview-menu {
+    .preview-menu { padding: 15px !important; }
+}
+.course-tabs {
+    overflow: hidden !important;
+}
+.view-passwordreset {
+    .window-wrap {
+        #content {
+            display: block;
+            height: auto;
+        }
     }
 }
 .banner {
@@ -87,10 +114,9 @@ a, button {
         }
     }
     .left-col {
-        max-width: 650px;
+        max-width: 530px;
         float: left;
         text-transform: capitalize;
-        @include MQ(max-desktop) { max-width: 600px; }
         @include MQ(max-tablet) { max-width: 460px; }
         @include MQ(max-mobile) { max-width: 390px; }
         @include MQ(max-smallmobile) {
@@ -99,16 +125,12 @@ a, button {
             text-align: center;
         }
         h1 {
-            font-size: 50px;
+            font-size: 40px;
             line-height: 1.2;
             font-weight: 700;
-            margin: 0 0 40px;
+            margin: 0 0 30px;
             color: $white;
             text-align: left;
-            @include MQ(max-desktop) {
-                font-size: 44px;
-                line-height: 1.4;
-            }
             @include MQ(max-tablet) { font-size: 34px; }
             @include MQ(max-mobile) {
                 font-size: 25px;
@@ -121,16 +143,16 @@ a, button {
             }
         }
         button {
-            width: 260px;
-            height: 65px;
+            width: 230px;
+            height: 55px;
             border-radius: 3px;
             box-shadow: 2.5px 4.33px 0px rgba(38,83,184,0.75);
             background: #3f99d5;
             background: -moz-linear-gradient(left, #3f99d5 0%, #3f99d5 15%, #3f93d3 24%, #3e8bd3 33%, #408ad5 33%, #3f89d4 36%, #4287d5 36%, #3f7dd2 47%, #4277d5 55%, #4075d3 57%, #4272d6 61%, #426fd4 65%, #426fd6 100%);
             background: -webkit-linear-gradient(left, #3f99d5 0%,#3f99d5 15%,#3f93d3 24%,#3e8bd3 33%,#408ad5 33%,#3f89d4 36%,#4287d5 36%,#3f7dd2 47%,#4277d5 55%,#4075d3 57%,#4272d6 61%,#426fd4 65%,#426fd6 100%);
             background: linear-gradient(to right, #3f99d5 0%,#3f99d5 15%,#3f93d3 24%,#3e8bd3 33%,#408ad5 33%,#3f89d4 36%,#4287d5 36%,#3f7dd2 47%,#4277d5 55%,#4075d3 57%,#4272d6 61%,#426fd4 65%,#426fd6 100%);
-            font-size: 25px;
-            line-height: 60px;
+            font-size: 22px;
+            line-height: 45px;
             font-weight: 600;
             overflow: hidden;
             text-align: center;
@@ -138,13 +160,10 @@ a, button {
             text-shadow: none;
             margin: 0 20px 10px 0;
             border-radius: 2px;
-            @include MQ(max-desktop) { width: 240px; }
             @include MQ(max-tablet) {
                 width: 200px;
                 margin: 0 10px 10px 0;
-                height: 60px;
                 font-size: 20px;
-                line-height: 55px;
             }
             @include MQ(max-mobile) {
                 width: 180px;
@@ -176,7 +195,7 @@ a, button {
 .sidebar-timer {
     float: right;
     text-align: center;
-    margin: 5% 0 0;
+    margin: 3% 0 0;
     @include MQ(max-smallmobile) {
         float: none;
         margin: 20px 0;
@@ -207,7 +226,7 @@ a, button {
     box-shadow: none;
     #footer-openedx {
         max-width: 1200px !important;
-        padding: 20px 15px;
+        padding: 15px;
         display: block;
         @include MQ(max-smallmobile) {
             padding: 15px;
@@ -215,10 +234,9 @@ a, button {
         }
     }
     .footer-about-openedx {
-        margin: -12px auto 0 !important;
+        margin: 0 auto !important;
         width: 135px !important;
         float: none !important;
-        @include MQ(max-smallmobile) { margin: 0 auto !important; }
         p {
             @include MQ(max-smallmobile) { margin: 0; }
         }
@@ -235,52 +253,80 @@ a, button {
             &:hover { color: #416ed4; }
         }
     }
-    .right-block {
-        float: right;
-        @include MQ(max-smallmobile) {
-            float: none;
-            overflow: hidden;
-            margin: 0 0 10px;
+}
+#social-networks {
+    a {
+        width: 32px;
+        height: 32px;
+        margin: 0 4px 6px 0;
+        display: inline-block;
+        vertical-align: top;
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+        line-height: 32px;
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        border-radius: 100%;
+        &.arbisoft {
+            background: #939598;
         }
-        .title {
-            display: block;
-            color: $black;
-            margin: 0 0 10px;
+        &.facebook {
+            background: #4a6d9d;
         }
-        #social-networks {
-            a {
-                width: 28px;
-                height: 28px;
-                margin: 0 6px 6px 0;
-                display: block;
-                float: left;
-                text-indent: -9999px;
-                transition: all 0.3s ease-in-out;
-                -webkit-transition: all 0.3s ease-in-out;
-                &.facebook {
-                    background: url('../images/facebook.png') no-repeat 0 -38px;
-                    &:hover { background-position: 0 0; }
-                }
-                &.linkedin {
-                    background: url('../images/linkedin.png') no-repeat  0 -38px;
-                    &:hover { background-position: 0 0; }
-                }
-                &.twitter {
-                    background: url('../images/twitter.png') no-repeat  0 -38px;
-                    &:hover { background-position: 0 0; }
-                }
-                @include MQ(max-smallmobile) {
-                    float: none;
-                    display: inline-block;
-                    vertical-align: top;
-                }
-            }
+        &.linkedin {
+            background: #1e7bb5;
         }
+        &.twitter {
+            background: #46c1ee;
+        }
+        &.instagram {
+            background: #8558b3;
+        }
+        &:hover { opacity: 0.7; }
     }
 }
 .dashboard {
     .main-container {
         padding: 2% 0;
+        .my-courses {
+            .listing-courses {
+                .course-item {
+                    .course-container {
+                        box-shadow: 0 0 18px #f0f8fd;
+                        max-width: 570px;
+                        margin: 0 auto;
+                        text-align: center;
+                    }
+                }
+            }
+            .course {
+                .details {
+                    .wrapper-course-image {
+                        float: none;
+                        margin: 0;
+                        width: auto;
+                        max-height: inherit;
+                        .cover { float: none; }
+                    }
+                    .wrapper-course-details {
+                        margin: 0;
+                        padding: 15px 10px;
+                        .course-title {
+                            padding: 0;
+                            max-width: 0 0 10px;
+                        }
+                        .course-info {
+                            width: 100%;
+                            [class*="info-"] { color: $black; }
+                            .info-date-block-container {
+                                .info-date-block { color: $black; }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 .empty-dashboard-message {
@@ -319,9 +365,12 @@ a, button {
         }
     }
 }
-.view-dashboard {
+.view-dashboard, .None, .view-in-course {
     .global-header {
+        background: $sky;
         overflow: visible;
+        border: 0;
+        box-shadow: none;
         .outer-container { position: relative; }
         .nav-links {
             .secondary {
@@ -348,7 +397,7 @@ a, button {
                     border: 0;
                     background: $sky;
                     right: 0;
-                    top: 62px;
+                    top: 75px;
                     width: 200px;
                     .dropdown-item {
                         &:not(:last-child) { border-bottom-color: $white; }
@@ -366,6 +415,8 @@ a, button {
         }
         .header-logo {
             display: inline;
+            a { margin: 0; }
+            .course-header { margin: 0 0 0 20px; }
         }
     }
     #main {
@@ -381,6 +432,7 @@ a, button {
 .login-register-content {
     max-width: 1150px;
     margin: 40px auto;
+    position: relative;
     @include MQ(max-tablet) { margin: 20px auto; }
     @include MQ(max-smallmobile) { margin: 0 auto; }
 }
@@ -390,6 +442,14 @@ a, button {
     width: 100%;
     float: none;
     text-align: center;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0 15px;
+    height: auto;
+    @include MQ(max-mobile) { position: static; }
+    .centered-div { float: none; }
     p {
         color: $black;
         font-size: 19px;
@@ -408,13 +468,20 @@ a, button {
     font-size: 20px !important;
     line-height: 25px !important;
     color: $black;
-    margin: 0 0 60px !important;
+    margin: 80px 0 60px !important;
     max-width: none !important;
+    overflow: hidden;
     @include MQ(max-smallmobile) {
         font-size: 18px !important;
         margin: 0 0 30px !important;
     }
     a { color: #3f99d4 !important; }
+}
+.toggle-form {
+    &.register {
+        margin: 60px 0 !important;
+        @include MQ(max-smallmobile) { margin: 0 0 30px !important; }
+    }
 }
 .login-register {
     max-width: none;
@@ -423,20 +490,33 @@ a, button {
         form {
             border-radius: 3px;
             box-shadow: 0 0 18px #f0f8fd;
-            padding: 70px 50px 50px;
+            padding: 100px 50px 50px;
             @include MQ(max-smallmobile) { padding: 55px 20px 20px; }
         }
     }
+    .submission-success {
+        margin: 80px 0 0;
+        @include MQ(max-smallmobile) { margin: 0 0 20px; }
+    }
 }
 .login-register-content {
+    .button-block {
+        margin: 0 50px -90px 50px;
+        @include MQ(max-smallmobile) {
+            margin: 0 0 -50px 20px;
+        }
+        .text {
+            display: block;
+            line-height: 1.5;
+        }
+    }
     h2 {
         color: #333;
-        margin: 0 0 -60px 50px;
+        margin: 0 0 10px;
         font-size: 30px;
         line-height: 35px;
         font-weight: 600;
         @include MQ(max-smallmobile) {
-            margin: 0 0 -50px 20px;
             font-size: 25px;
         }
     }
@@ -447,7 +527,7 @@ a, button {
             border-color: transparent transparent #b7b7b7;
             border-radius: 0;
             box-shadow: none;
-            padding: 0;
+            padding: 0 10px;
             outline: none;
             height: 35px;
             &:focus {
@@ -480,6 +560,12 @@ a, button {
         &.checkbox-remember {
             float: left;
             width: auto;
+        }
+        &.text-expected_salary {
+            input {
+                height: 100px;
+                @include MQ(max-mobile) { height: 35px; }
+            }
         }
     }
     .login-button {
@@ -561,4 +647,42 @@ a, button {
     text-transform: capitalize;
     padding: 0 10px !important;
     &:hover { background-color: #065683 !important; }
+}
+#register-name-desc, #register-username-desc, #login-email-desc, .wrapper-course-actions, .wrapper-messages-primary, .course-message, .course-sidebar, .view-in-course .page-header.has-secondary { display: none !important; }
+.xmodule_display {
+    &.xmodule_CapaModule {
+        div {
+            &.problem {
+                .choicegroup {
+                    label {
+                        padding-left: 55px;
+                    }
+                }
+            }
+        }
+    }
+}
+.proctored_exam_status {
+    .exam-timer {
+        .exam-text { width: calc(100% - 350px); }
+    }
+    &.is-fixed { z-index: 99; }
+}
+table { width: 100%; }
+.contact-block {
+    max-width: 1200px;
+    text-align: center;
+    @include MQ(max-mobile) { padding: 40px 15px; }
+    h1 {
+        color: $black;
+        font-size: 22px;
+        line-height: 1.5;
+        margin: 0 0 30px;
+        @include MQ(max-mobile) {
+            font-size: 19px;
+            margin: 0 0 20px;
+        }
+        @include MQ(max-smallmobile) { font-size: 17px; }
+    }
+    span { display: block; }
 }

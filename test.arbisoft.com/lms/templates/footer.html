@@ -11,50 +11,19 @@
 
 % if uses_bootstrap:
   <div class="container-fluid wrapper-footer">
-    <footer>
+    <footer id="footer-openedx">
       <div class="row">
-        <div class="col-md-9">
-          <nav class="navbar site-nav navbar-expand-sm" aria-label="${_('About')}">
-            <ul class="navbar-nav">
-              % for item_num, link in enumerate(footer['navigation_links'], start=1):
-                <li class="nav-item">
-                  <a class="nav-link" href="${link['url']}">${link['title']}</a>
-                </li>
-              % endfor
-            </ul>
-          </nav>
-
-          ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-          <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
-
-          <nav class="navbar legal-nav navbar-expand-sm" aria-label="${_('Legal')}">
-            <ul class="navbar-nav">
-              % for item_num, link in enumerate(footer['legal_links'], start=1):
-                <li class="nav-item">
-                  <a class="nav-link" href="${link['url']}">${link['title']}</a>
-                </li>
-              % endfor
-              <li class="nav-item">
-                <a class="nav-link" href="${footer['edx_org_link']['url']}">${footer['edx_org_link']['text']}</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="col-md-3">
           ## Please leave this link and use one of the logos provided
           ## The OpenEdX link may be hidden when this view is served
           ## through an API to partner sites (such as marketing sites or blogs),
           ## which are not technically powered by Open edX.
           % if not hide_openedx_link:
             <div class="footer-about-openedx">
-              <p>
                 <a href="${footer['openedx_link']['url']}">
                   <img src="${footer['openedx_link']['image']}" alt="${footer['openedx_link']['title']}" width="140" />
                 </a>
-              </p>
             </div>
           % endif
-        </div>
       </div>
     </footer>
   </div>
@@ -68,27 +37,16 @@
         dir=${bidi}
       % endif
     >
-        <span class="website"><i class="fa fa-globe"></i> Web: <a href="https://arbisoft.com/">www.arbisoft.com</a></span>
-        <div class="right-block">
-          <span class="title">Follow Us</span>
-          <div id="social-networks">
-            <a href="https://www.facebook.com/arbisoft" target="_blank" rel="tooltip" title="Facebook" class="facebook">Facebook</a>
-            <a href="http://www.linkedin.com/company/1202765?trk=tyah" rel="tooltip" target="_blank" title="LinkedIn" class="linkedin">LinkedIn</a>
-            <a href="https://twitter.com/arbisoft" target="_blank" rel="tooltip" title="Twitter"
-            class="twitter">Twitter</a>
-          </div>
-        </div>
+        
         ## Please leave this link and use one of the logos provided
         ## The OpenEdX link may be hidden when this view is served
         ## through an API to partner sites (such as marketing sites or blogs),
         ## which are not technically powered by OpenEdX.
         % if not hide_openedx_link:
         <div class="footer-about-openedx">
-          <p>
             <a href="${footer['openedx_link']['url']}">
               <img src="${footer['openedx_link']['image']}" alt="${footer['openedx_link']['title']}" width="140" />
             </a>
-          </p>
         </div>
         % endif
         
@@ -106,3 +64,5 @@
     <link rel="stylesheet" type="text/css" href="${url}"></link>
   % endfor
 % endif
+
+
