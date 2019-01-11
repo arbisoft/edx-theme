@@ -10,16 +10,20 @@ from openedx.core.djangolib.markup import HTML, Text
 
 <%block name="body">
 
-    <div id="root" class="container">
+    <div id="root" class="container contact-block">
         <h1>${_("Contact {platform_name} Team").format(platform_name=platform_name)} </h1>
 
                     <p style="line-height: 2em">
-                        ${Text(_("In case of any queries, please feel free to contact us at {strong_start}0323-4919715 - 0342-9738872{strong_end} or email us at {link_start}abdullah@arbisoft.com{link_end} - {link_start}sabeen.nasar@arbisoft.com{link_end}")).format(
-                            strong_start=HTML('<strong>'),
-                            strong_end=HTML('</strong>'),
-                            link_start=HTML('<a href="mailto:abdullah@arbisoft.com,sabeen.nasar@arbisoft.com">'),
-                            link_end=HTML('</a>'),
-                        )}
+                            ${Text(_("In case of any queries, please feel free to contact us:{span_start} {strong_start}Abdullah Faseh:{strong_end}{span_start}Cell: 0323-4919715{span_end}{span_start}Email: {link_start}abdullah@arbisoft.com{link_end}{span_end}{span_end} {span_start}{strong_start}Sabeen Nasar:{strong_end}{span_start}Cell: 0342-9738872{span_end}{span_start}Email: {link_start1}sabeen.nasar@arbisoft.com{link_end1}{span_end}{span_end}")).format(
+                                strong_start=HTML('<strong>'),
+                                strong_end=HTML('</strong>'),
+                                span_start=HTML('<span>'),
+                                span_end=HTML('</span>'),
+                                link_start=HTML('<a href="mailto:abdullah@arbisoft.com">'),
+                                link_end=HTML('</a>'),
+                                link_start1=HTML('<a href="mailto:sabeen.nasar@arbisoft.com">'),
+                                link_end1=HTML('</a>'),
+                            )}
                     </p>
 
     </div>

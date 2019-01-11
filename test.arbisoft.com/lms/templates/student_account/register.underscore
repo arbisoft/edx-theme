@@ -1,8 +1,15 @@
+<div id="arbisoft-content-container" class="enterprise-content" style="margin-top: 0;">
+    <div class="centered-div">
+        <p style="font-weight: 800">
+            All fields are compulsory and must be completed with the best of your knowledge.
+        </p>
+    </div>
+</div>
 <div class="js-form-feedback" aria-live="assertive" tabindex="-1">
 </div>
 
 <% if (!context.syncLearnerProfileData) { %>
-	<div class="toggle-form">
+	<div class="toggle-form register">
 		<span class="text"><%- edx.StringUtils.interpolate(gettext('Already have an account?')) %></span>
 		<a href="#login" class="form-toggle" data-type="login"><%- gettext("Sign in.") %></a>
 	</div>
