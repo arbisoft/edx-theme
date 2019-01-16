@@ -591,6 +591,12 @@ a, button {
                 @include MQ(max-mobile) { height: 35px; }
             }
         }
+        &.textarea-other_technologies {
+            textarea { height: 52px; }
+        }
+        &.textarea-extra_activities {
+            textarea { height: 76px; }
+        }
     }
     .login-button {
         float: right;
