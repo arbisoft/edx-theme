@@ -12,7 +12,6 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
   parsed_test_datetime = parse(test_datetime)
   local_test_datetime = pk_tz.localize(parsed_test_datetime)
   current_datetime = datetime.now(pk_tz)
-  test_course_link = configuration_helpers.get_value('TEST_COURSE_LINK', '#')
 %>
 ${_("Thank you for registering for "
 "{platform_name}. Please note that you will not be able to log back into your account until "
@@ -26,7 +25,6 @@ Activation link: http://${ site }/activate/${ key }
 
 ${_("Test Date and Time: {test_datetime}").format(test_datetime=test_datetime)}
 
-${_("Test Link: {test_course_link}").format(test_course_link=test_course_link)}
 
 ${_("In case of any queries, please feel free to contact us at {numbers} or email us at {emails}").format(
 numbers='0323-4919715 - 0342-9738872', emails='freshgradhiring@arbisoft.com')}
