@@ -722,3 +722,10 @@ table { width: 100%; }
         margin: 0 0 10px;
     }
 }
+.login-register {
+    .form-field {
+        label {
+            &.focus-out { position: relative; }
+        }
+    }
+}
