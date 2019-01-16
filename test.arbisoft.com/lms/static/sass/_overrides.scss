@@ -73,11 +73,24 @@ a, button {
     }
 }
 .page-content-container, .view-in-course .container { margin: 0 auto 20px !important; }
+.content-wrapper {
+    .course-tabs { margin: 20px auto 0 !important; }
+}
 .wrapper-preview-menu {
     .preview-menu { padding: 15px !important; }
 }
 .course-tabs {
     overflow: hidden !important;
+    li {
+        a { font-size: 19px; }
+    }
+}
+.wrapper-course-material {
+    .course-tabs {
+        .tab {
+            a { font-size: 19px !important; }
+        }
+    }
 }
 .view-passwordreset {
     .window-wrap {
@@ -114,10 +127,10 @@ a, button {
         }
     }
     .left-col {
-        max-width: 530px;
+        max-width: 505px;
         float: left;
         text-transform: capitalize;
-        @include MQ(max-tablet) { max-width: 460px; }
+        @include MQ(max-tablet) { max-width: 410px; }
         @include MQ(max-mobile) { max-width: 390px; }
         @include MQ(max-smallmobile) {
             float: none;
@@ -125,13 +138,13 @@ a, button {
             text-align: center;
         }
         h1 {
-            font-size: 40px;
+            font-size: 37px;
             line-height: 1.2;
             font-weight: 700;
             margin: 0 0 30px;
             color: $white;
             text-align: left;
-            @include MQ(max-tablet) { font-size: 34px; }
+            @include MQ(max-tablet) { font-size: 30px; }
             @include MQ(max-mobile) {
                 font-size: 25px;
                 margin: 0 0 20px;
@@ -161,7 +174,7 @@ a, button {
             margin: 0 20px 10px 0;
             border-radius: 2px;
             @include MQ(max-tablet) {
-                width: 200px;
+                width: 185px;
                 margin: 0 10px 10px 0;
                 font-size: 20px;
             }
@@ -318,9 +331,16 @@ a, button {
                         }
                         .course-info {
                             width: 100%;
-                            [class*="info-"] { color: $black; }
+                            [class*="info-"] {
+                                color: $black;
+                                font-size: 18px;
+                            }
                             .info-date-block-container {
-                                .info-date-block { color: $black; }
+                                margin: 5px 0 0;
+                                .info-date-block {
+                                    color: $black;
+                                    font-size: 18px;
+                                }
                             }
                         }
                     }
@@ -492,9 +512,13 @@ a, button {
             box-shadow: 0 0 18px #f0f8fd;
             padding: 100px 50px 50px;
             @include MQ(max-smallmobile) { padding: 55px 20px 20px; }
+            &#password-reset {
+                padding: 50px;
+                @include MQ(max-smallmobile) { padding: 20px; }
+            }
         }
     }
-    .submission-success {
+    .submission-success, .submission-error {
         margin: 80px 0 0;
         @include MQ(max-smallmobile) { margin: 0 0 20px; }
     }
@@ -648,14 +672,14 @@ a, button {
     padding: 0 10px !important;
     &:hover { background-color: #065683 !important; }
 }
-#register-name-desc, #register-username-desc, #login-email-desc, .wrapper-course-actions, .wrapper-messages-primary, .course-message, .course-sidebar, .view-in-course .page-header.has-secondary { display: none !important; }
+#register-name-desc, #register-username-desc, #login-email-desc, .wrapper-course-actions, .wrapper-messages-primary, .course-message, .course-sidebar, .view-in-course .page-header.has-secondary, .bookmark-button, .xmodule_display.xmodule_SequenceModule .sequence-nav, .xmodule_display.xmodule_SequenceModule .sequence-bottom, .proctored_exam_status .exam-timer .exam-timer-clock #toggle_timer, .course-outline, .welcome-message .dismiss-message, .update-message .dismiss-message { display: none !important; }
 .xmodule_display {
     &.xmodule_CapaModule {
         div {
             &.problem {
                 .choicegroup {
                     label {
-                        padding-left: 55px;
+                        padding-left: 55px !important;
                     }
                 }
             }
@@ -685,4 +709,16 @@ table { width: 100%; }
         @include MQ(max-smallmobile) { font-size: 17px; }
     }
     span { display: block; }
+}
+.instructions-block {
+    h1 {
+        margin: 0 0 20px;
+        @include MQ(max-smallmobile) { font-size: 24px; }
+    }
+}
+.test-instructions {
+    font-size: 18px;
+    li {
+        margin: 0 0 10px;
+    }
 }
