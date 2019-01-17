@@ -694,7 +694,18 @@ a, button {
 }
 .proctored_exam_status {
     .exam-timer {
-        .exam-text { width: calc(100% - 350px); }
+        .exam-text {
+            width: calc(100% - 310px);
+            font-size: 14px;
+            @include MQ(max-mobile) { width: 100%; }
+        }
+        .turn_in_exam {
+            margin-top: -1px;
+            @include MQ(max-mobile) {
+                float: none;
+                margin-top: 10px;
+            }
+        }
     }
     &.is-fixed { z-index: 99; }
 }
