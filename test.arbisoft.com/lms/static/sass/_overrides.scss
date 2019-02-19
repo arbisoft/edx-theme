@@ -687,7 +687,7 @@ a, button {
     padding: 0 10px !important;
     &:hover { background-color: #065683 !important; }
 }
-#register-name-desc, #register-username-desc, #login-email-desc, .wrapper-course-actions, .wrapper-messages-primary, .course-message, .course-sidebar, .view-in-course .page-header.has-secondary, .bookmark-button, .xmodule_display.xmodule_SequenceModule .sequence-nav, .xmodule_display.xmodule_SequenceModule .sequence-bottom, .proctored_exam_status .exam-timer .exam-timer-clock #toggle_timer, .course-outline, .welcome-message .dismiss-message, .update-message .dismiss-message, .problem-action-buttons-wrapper, .content-wrapper .course-tabs .navbar-nav li:first-child, .content-wrapper .course-tabs .navbar-nav li:nth-child(2), .xmodule_display.xmodule_CapaModule div.problem-progress { display: none !important; }
+#register-name-desc, #register-username-desc, #login-email-desc, .wrapper-course-actions, .wrapper-messages-primary, .course-message, .course-sidebar, .view-in-course .page-header.has-secondary, .bookmark-button, .xmodule_display.xmodule_SequenceModule .sequence-nav, .xmodule_display.xmodule_SequenceModule .sequence-bottom, .proctored_exam_status .exam-timer .exam-timer-clock #toggle_timer, .course-outline, .welcome-message .dismiss-message, .update-message .dismiss-message, .problem-action-buttons-wrapper, .content-wrapper .course-tabs .navbar-nav li:first-child, .content-wrapper .course-tabs .navbar-nav li:nth-child(2), .xmodule_display.xmodule_CapaModule div.problem-progress, .wrapper-course-material .course-tabs .tab:first-child, .wrapper-course-material .course-tabs .tab:nth-child(2) { display: none !important; }
 .xmodule_display {
     &.xmodule_CapaModule {
         div {
