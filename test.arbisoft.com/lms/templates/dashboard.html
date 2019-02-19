@@ -206,15 +206,12 @@ from student.models import CourseEnrollment
                     % if current_datetime < local_test_datetime:
                     <div class="test-due">
                       <p style="line-height: 2em">
-                          ${Text(_("Thank you for registering for the online test. You can attempt the test on {strong_start}{test_datetime}{strong_end} by clicking on the button below.")).format(
+                          ${Text(_("Thank you for registering for the online test. You can attempt the test on {strong_start}{test_datetime}{strong_end}.")).format(
                             test_datetime=test_datetime,
                             strong_start=HTML('<strong>'),
                               strong_end=HTML('</strong>'),
 
                             )}
-                      </p>
-                      <p style="line-height: 2em">
-                          <a href="${test_course_link}" class="text-link">Test Link</a>
                       </p>
                       <p style="line-height: 2em">
                           ${Text(_("In case of any queries, please feel free to email us at {link_start}freshgradhiring@arbisoft.com{link_end} or contact us:{span_start} {strong_start}Abdullah Faseh:{strong_end}{span_start}Cell: 0323-4919715{span_end}{span_end} {span_start}{strong_start}Sabeen Nasar:{strong_end}{span_start}Cell: 0342-9738872{span_end}{span_end}")).format(
