@@ -208,7 +208,7 @@ a, button {
 .sidebar-timer {
     float: right;
     text-align: center;
-    margin: 3% 0 0;
+    margin: 2% 0 0;
     @include MQ(max-smallmobile) {
         float: none;
         margin: 20px 0;
@@ -353,7 +353,7 @@ a, button {
     border: 0;
     padding: 0;
     background: none;
-    max-width: 900px;
+    max-width: 920px;
     margin: 0 auto;
     p {
         color: $black;
@@ -449,6 +449,15 @@ a, button {
         }
     }
 }
+.view-in-course {
+    .global-header {
+        .nav-links {
+            .secondary {
+                .dropdown-user-menu { top: 70px; }
+            }
+        }
+    }
+}
 .login-register-content {
     max-width: 1150px;
     margin: 40px auto;
@@ -518,7 +527,7 @@ a, button {
             }
         }
     }
-    .submission-success, .submission-error {
+    .submission-success, .submission-error, .login-register .status.account-activation.info {
         margin: 80px 0 0;
         @include MQ(max-smallmobile) { margin: 0 0 20px; }
     }
@@ -678,7 +687,7 @@ a, button {
     padding: 0 10px !important;
     &:hover { background-color: #065683 !important; }
 }
-#register-name-desc, #register-username-desc, #login-email-desc, .wrapper-course-actions, .wrapper-messages-primary, .course-message, .course-sidebar, .view-in-course .page-header.has-secondary, .bookmark-button, .xmodule_display.xmodule_SequenceModule .sequence-nav, .xmodule_display.xmodule_SequenceModule .sequence-bottom, .proctored_exam_status .exam-timer .exam-timer-clock #toggle_timer, .course-outline, .welcome-message .dismiss-message, .update-message .dismiss-message { display: none !important; }
+#register-name-desc, #register-username-desc, #login-email-desc, .wrapper-course-actions, .wrapper-messages-primary, .course-message, .course-sidebar, .view-in-course .page-header.has-secondary, .bookmark-button, .xmodule_display.xmodule_SequenceModule .sequence-nav, .xmodule_display.xmodule_SequenceModule .sequence-bottom, .proctored_exam_status .exam-timer .exam-timer-clock #toggle_timer, .course-outline, .welcome-message .dismiss-message, .update-message .dismiss-message, .problem-action-buttons-wrapper, .content-wrapper .course-tabs .navbar-nav li:first-child, .content-wrapper .course-tabs .navbar-nav li:nth-child(2), .xmodule_display.xmodule_CapaModule div.problem-progress { display: none !important; }
 .xmodule_display {
     &.xmodule_CapaModule {
         div {
@@ -732,12 +741,19 @@ table { width: 100%; }
         margin: 0 0 20px;
         @include MQ(max-smallmobile) { font-size: 24px; }
     }
+    h2 {
+        margin: 0 0 20px;
+        font-size: 20px;
+        font-weight: normal;
+    }
+    span {
+        display: block;
+        margin: 0 0 10px;
+    }
 }
 .test-instructions {
     font-size: 18px;
-    li {
-        margin: 0 0 10px;
-    }
+    li { margin: 0 0 10px; }
 }
 .login-register {
     .form-field {
@@ -746,3 +762,19 @@ table { width: 100%; }
         }
     }
 }
+.proctored_exam_status {
+    .exam-timer {
+        &.low-time {
+            .pull-right {
+                .exam-button-turn-in-exam {
+                    &:hover {
+                        color: #000;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+.welcome-message, .update-message { border-left: 0; }
+.xmodule_display.xmodule_CapaModule .problem .capa_inputtype.textline input { width: 180px !important; }
