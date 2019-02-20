@@ -532,7 +532,7 @@ a, button {
         @include MQ(max-smallmobile) { margin: 0 0 20px; }
     }
 }
-.login-register .status.account-activation.info {
+.login-register .status.account-activation.info, .login-register .status.account-activation.success {
     margin: 80px 0 0;
     @include MQ(max-smallmobile) { margin: 0 0 20px; }
 }
