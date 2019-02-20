@@ -527,10 +527,14 @@ a, button {
             }
         }
     }
-    .submission-success, .submission-error, .login-register .status.account-activation.info {
+    .submission-success, .submission-error {
         margin: 80px 0 0;
         @include MQ(max-smallmobile) { margin: 0 0 20px; }
     }
+}
+.login-register .status.account-activation.info {
+    margin: 80px 0 0;
+    @include MQ(max-smallmobile) { margin: 0 0 20px; }
 }
 .login-register-content {
     .button-block {
@@ -687,7 +691,7 @@ a, button {
     padding: 0 10px !important;
     &:hover { background-color: #065683 !important; }
 }
-#register-name-desc, #register-username-desc, #login-email-desc, .wrapper-course-actions, .wrapper-messages-primary, .course-message, .course-sidebar, .view-in-course .page-header.has-secondary, .bookmark-button, .xmodule_display.xmodule_SequenceModule .sequence-nav, .xmodule_display.xmodule_SequenceModule .sequence-bottom, .proctored_exam_status .exam-timer .exam-timer-clock #toggle_timer, .course-outline, .welcome-message .dismiss-message, .update-message .dismiss-message, .problem-action-buttons-wrapper, .content-wrapper .course-tabs .navbar-nav li:first-child, .content-wrapper .course-tabs .navbar-nav li:nth-child(2), .xmodule_display.xmodule_CapaModule div.problem-progress, .wrapper-course-material .course-tabs .tab:first-child, .wrapper-course-material .course-tabs .tab:nth-child(2) { display: none !important; }
+#register-name-desc, #register-username-desc, #login-email-desc, .wrapper-course-actions, .wrapper-messages-primary, .course-message, .course-sidebar, .view-in-course .page-header.has-secondary, .bookmark-button, .xmodule_display.xmodule_SequenceModule .sequence-nav, .xmodule_display.xmodule_SequenceModule .sequence-bottom, .proctored_exam_status .exam-timer .exam-timer-clock #toggle_timer, .course-outline, .welcome-message .dismiss-message, .update-message .dismiss-message, .content-wrapper .course-tabs .navbar-nav li:first-child, .content-wrapper .course-tabs .navbar-nav li:nth-child(2), .xmodule_display.xmodule_CapaModule div.problem-progress, .wrapper-course-material .course-tabs .tab:first-child, .wrapper-course-material .course-tabs .tab:nth-child(2), .xmodule_display.xmodule_CapaModule div.problem .action .problem-action-btn.save, .course-wrapper .course-content .footer-sequence { display: none !important; }
 .xmodule_display {
     &.xmodule_CapaModule {
         div {
@@ -701,6 +705,7 @@ a, button {
         }
     }
 }
+.proctored_exam_status .exam-timer .exam-timer-clock { font-size: 20px !important; }
 .proctored_exam_status {
     .exam-timer {
         .exam-text {
@@ -750,9 +755,20 @@ table { width: 100%; }
         display: block;
         margin: 0 0 10px;
     }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 18px;
+        li {
+            margin: 0 0 15px;
+            strong { display: block; }
+        }
+    }
 }
 .test-instructions {
     font-size: 18px;
+    margin: 0 0 40px;
     li { margin: 0 0 10px; }
 }
 .login-register {
@@ -776,5 +792,5 @@ table { width: 100%; }
         }
     }
 }
-.welcome-message, .update-message { border-left: 0; }
+.welcome-message, .update-message { border-left: solid 1px #e7e7e7; }
 .xmodule_display.xmodule_CapaModule .problem .capa_inputtype.textline input { width: 180px !important; }
