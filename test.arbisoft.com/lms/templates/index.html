@@ -3,6 +3,7 @@
 <%namespace name='static' file='static_content.html'/>
 <%!
 from django.utils.translation import ugettext as _
+from django.utils.formats import dateformat
 from django.urls import reverse
 
 from openedx.core.djangolib.markup import HTML, Text
@@ -31,6 +32,7 @@ from student.models import CourseEnrollment
   parsed_test_datetime = parse(test_datetime)
   local_test_datetime = pk_tz.localize(parsed_test_datetime)
   current_datetime = datetime.now(pk_tz)
+  formated_time = dateformat.format(local_test_datetime,'l jS, F g:i A T')
 %>
 
 <div class="banner">
@@ -38,7 +40,7 @@ from student.models import CourseEnrollment
     <div class="holder">
         <div class="outer-container">
           <div class="left-col">
-            <h1>Arbisoft Fresh Grads Online Recruitment Test 23rd February 2019</h1>
+            <h1>${_("{platform_name} on {time}").format(platform_name=platform_name,time=formated_time)}</h1>
             <button type="submit" class="action action-primary register-button" onclick="location.href='/register'">Register</button>
             <button type="submit" class="action action-primary register-button" onclick="location.href='/login'">Login</button>
           </div>
