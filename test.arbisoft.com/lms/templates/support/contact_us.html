@@ -1,9 +1,16 @@
 <%page expression_filter="h"/>
 <%!
 from django.utils.translation import ugettext as _
+from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 from openedx.core.djangolib.markup import HTML, Text
 %>
-
+<%
+    contact_email = configuration_helpers.get_value('CONTACT_EMAIL', 'test@arbisoft.com')
+    contact_name_1 = configuration_helpers.get_value('CONTACT_NAME_1')
+    contact_name_2 = configuration_helpers.get_value('CONTACT_NAME_2')
+    contact_phone_1 = configuration_helpers.get_value('CONTACT_PHONE_1')
+    contact_phone_2 = configuration_helpers.get_value('CONTACT_PHONE_2')
+%>
 <%inherit file="../main.html"/>
 <%namespace file='../main.html' import="login_query"/>
 <%namespace name='static' file='../static_content.html'/>
@@ -14,13 +21,16 @@ from openedx.core.djangolib.markup import HTML, Text
         <h1>${_("Contact {platform_name} Team").format(platform_name=platform_name)} </h1>
 
                     <p style="line-height: 2em">
-                        ${Text(_("In case of any queries, please feel free to email us at {link_start}freshgradhiring@arbisoft.com{link_end} or contact us:{span_start} {strong_start}Abdullah Faseh:{strong_end}{span_start}Cell: 0323-4919715{span_end}{span_end} {span_start}{strong_start}Sabeen Nasar:{strong_end}{span_start}Cell: 0342-9738872{span_end}{span_end}")).format(
+                        ${Text(_("In case of any queries, please feel free to email us at {email} or contact us:{span_start} {strong_start}{contact_name_1}:{strong_end}{span_start}Cell: {contact_phone_1}{span_end}{span_end} {span_start}{strong_start}{contact_name_2}:{strong_end}{span_start}Cell: {contact_phone_2}{span_end}{span_end}")).format(
                             strong_start=HTML('<strong>'),
                             strong_end=HTML('</strong>'),
                             span_start=HTML('<span>'),
                             span_end=HTML('</span>'),
-                            link_start=HTML('<a href="mailto:freshgradhiring@arbisoft.com">'),
-                            link_end=HTML('</a>'),
+                            email=HTML('<a href="mailto:{email}">{email}</a>.').format(email=contact_email),
+                            contact_name_1=contact_name_1,
+                            contact_name_2=contact_name_2,
+                            contact_phone_1=contact_phone_1,
+                            contact_phone_2=contact_phone_2,
                         )}
                     </p>
 

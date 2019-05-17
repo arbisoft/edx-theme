@@ -8,6 +8,9 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 %>
 <%
   pk_tz = pytz.timezone('Asia/Karachi')
+  contact_email = configuration_helpers.get_value('CONTACT_EMAIL', 'test@arbisoft.com')
+  contact_phone_1 = configuration_helpers.get_value('CONTACT_PHONE_1')
+  contact_phone_2 = configuration_helpers.get_value('CONTACT_PHONE_2')
   test_datetime = configuration_helpers.get_value('ONLINE_TEST_DATE', '2025-01-01')
   parsed_test_datetime = parse(test_datetime)
   local_test_datetime = pk_tz.localize(parsed_test_datetime)
@@ -26,8 +29,8 @@ Activation link: http://${ site }/activate/${ key }
 ${_("Test Date and Time: {test_datetime}").format(test_datetime=test_datetime)}
 
 
-${_("In case of any queries, please feel free to contact us at {numbers} or email us at {emails}").format(
-numbers='0323-4919715 - 0342-9738872', emails='freshgradhiring@arbisoft.com')}
+${_("In case of any queries, please feel free to contact us at {contact_phone_1} - {contact_phone_2} or email us at {email}").format(
+contact_phone_1=contact_phone_1, contact_phone_2=contact_phone_2, email=contact_email)}
 
 ${_("Note: To attempt the online test, please login with the same email address you used when registering to the account. "
 "In-case there is a discrepancy, the system won't allow you to log in.")}
