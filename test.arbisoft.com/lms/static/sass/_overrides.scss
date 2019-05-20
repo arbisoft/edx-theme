@@ -599,6 +599,12 @@ a, button {
             width: auto;
         }
         &.text-expected_salary {
+            input {
+                height: 100px;
+                @include MQ(max-mobile) { height: 35px; }
+            }
+        }
+        &.hidden-expected_salary {
             visibility: hidden;
             position: absolute;
         }
