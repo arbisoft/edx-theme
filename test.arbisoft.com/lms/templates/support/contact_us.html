@@ -4,6 +4,10 @@ from django.utils.translation import ugettext as _
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 from openedx.core.djangolib.markup import HTML, Text
 %>
+<%inherit file="../main.html"/>
+<%namespace file='../main.html' import="login_query"/>
+<%namespace name='static' file='../static_content.html'/>
+<%block name="body">
 <%
     contact_email = configuration_helpers.get_value('CONTACT_EMAIL', 'test@arbisoft.com')
     contact_name_1 = configuration_helpers.get_value('CONTACT_NAME_1')
@@ -11,12 +15,6 @@ from openedx.core.djangolib.markup import HTML, Text
     contact_phone_1 = configuration_helpers.get_value('CONTACT_PHONE_1')
     contact_phone_2 = configuration_helpers.get_value('CONTACT_PHONE_2')
 %>
-<%inherit file="../main.html"/>
-<%namespace file='../main.html' import="login_query"/>
-<%namespace name='static' file='../static_content.html'/>
-
-<%block name="body">
-
     <div id="root" class="container contact-block">
         <h1>${_("Contact {platform_name} Team").format(platform_name=platform_name)} </h1>
 
