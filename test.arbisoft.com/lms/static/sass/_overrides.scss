@@ -599,10 +599,8 @@ a, button {
             width: auto;
         }
         &.text-expected_salary {
-            input {
-                height: 100px;
-                @include MQ(max-mobile) { height: 35px; }
-            }
+            visibility: hidden;
+            position: absolute;
         }
         &.textarea-other_technologies {
             textarea { height: 52px; }
