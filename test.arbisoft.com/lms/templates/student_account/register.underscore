@@ -1,17 +1,14 @@
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Zhi+Mang+Xing">
 <style>
-@font-face {
-  font-family: myFirstFont;
-  src: url(sansation_bold.woff);
-}
-
-p {
-  font-family: myFirstFont;
-}
+  #register-p {
+    font-family: 'Zhi Mang Xing', cursive;
+  }
 </style>
 
 <div id="arbisoft-content-container" class="enterprise-content" style="margin-top: 0;">
     <div class="centered-div">
-        <p>
+        <p id="register-p">
             All fields are compulsory and must be completed with the best of your knowledge.
         </p>
     </div>

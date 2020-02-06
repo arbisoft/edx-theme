@@ -1,6 +1,13 @@
+<link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+<style>
+  #login-p {
+    font-family: 'Teko', sans-serif;
+  }
+</style>
+
 <div id="arbisoft-content-container" class="enterprise-content" style="margin-top: 0;">
     <div class="centered-div">
-        <p style="font-weight: 800; font-family: Didot, serif;">
+        <p id="login-p">
             To attempt the online test, please login with the same email address you used when registering to the account. In-case there is a discrepancy, the system won't allow you to log in.
         </p>
     </div>
