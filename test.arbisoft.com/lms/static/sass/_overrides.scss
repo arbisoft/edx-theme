@@ -281,23 +281,49 @@ a, button {
         transition: all 0.3s ease-in-out;
         -webkit-transition: all 0.3s ease-in-out;
         border-radius: 100%;
+
         &.arbisoft {
             background: #939598;
         }
+
         &.facebook {
             background: #4a6d9d;
         }
+
         &.linkedin {
             background: #1e7bb5;
         }
+
         &.twitter {
             background: #46c1ee;
         }
+
+        &:hover { opacity: 0.7; }
+    }
+    div {
+        width: 32px;
+        height: 32px;
+        margin: 0 4px 6px 0;
+        display: inline-block;
+        vertical-align: top;
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+        line-height: 32px;
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        border-radius: 100%;
+
         &.instagram {
             background: #8558b3;
         }
-        &:hover { opacity: 0.7; }
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
     }
+
 }
 .dashboard {
     .main-container {

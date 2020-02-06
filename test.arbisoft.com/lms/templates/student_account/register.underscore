@@ -1,6 +1,17 @@
+<style>
+@font-face {
+  font-family: myFirstFont;
+  src: url(sansation_bold.woff);
+}
+
+p {
+  font-family: myFirstFont;
+}
+</style>
+
 <div id="arbisoft-content-container" class="enterprise-content" style="margin-top: 0;">
     <div class="centered-div">
-        <p style="font-weight: 800">
+        <p>
             All fields are compulsory and must be completed with the best of your knowledge.
         </p>
     </div>
@@ -28,7 +39,7 @@
                 <%
                 _.each( context.providers, function( provider) {
                     if ( provider.registerUrl ) { %>
-                        <button type="button" class="button button-primary button-<%- provider.id %> login-provider register-<%- provider.id %>" data-provider-url="<%- provider.registerUrl %>">
+                        <button tabindex="1" type="button" class="button button-primary button-<%- provider.id %> login-provider register-<%- provider.id %>" data-provider-url="<%- provider.registerUrl %>">
                             <div class="icon <% if ( provider.iconClass ) { %>fa <%- provider.iconClass %><% } %>" aria-hidden="true">
                                 <% if ( provider.iconImage ) { %>
                                     <img class="icon-image" src="<%- provider.iconImage %>" alt="<%- provider.name %> icon" />
@@ -41,7 +52,7 @@
                 }); %>
 
                 <% if ( context.hasSecondaryProviders ) { %>
-                    <button type="button" class="button-secondary-login form-toggle" data-type="institution_login">
+                    <button tabindex="2" type="button" class="button-secondary-login form-toggle" data-type="institution_login">
                         <%- gettext("Use my institution/campus credentials") %>
                     </button>
                 <% } %>
@@ -61,7 +72,7 @@
     <%= context.fields %>
 
     <div class="form-field checkbox-optional_fields_toggle">
-        <input type="checkbox" id="toggle_optional_fields" class="input-block checkbox"">
+        <input tabindex="3" type="checkbox" id="toggle_optional_fields" class="input-block checkbox"">
         <label for="toggle_optional_fields">
             <span class="label-text">
                 <%- gettext("Support education research by providing additional information") %>
@@ -70,7 +81,7 @@
     </div>
 
 
-    <button type="submit" class="action action-primary action-update js-register register-button">
+    <button tabindex="4" type="submit" class="action action-primary action-update js-register register-button">
     	<% if ( context.registerFormSubmitButtonText ) { %><%- context.registerFormSubmitButtonText %><% } else { %><%- gettext("Create Account") %><% } %>
     </button>
 </form>

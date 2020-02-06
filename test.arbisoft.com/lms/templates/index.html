@@ -42,7 +42,7 @@ from student.models import CourseEnrollment
           <div class="left-col">
             <h1>${_("{platform_name} on {time}").format(platform_name=platform_name,time=formated_time)}</h1>
             <button type="submit" class="action action-primary register-button" onclick="location.href='/register'">Register</button>
-            <button type="submit" class="action action-primary register-button" onclick="location.href='/login'">Login</button>
+<!--            <button type="submit" class="action register-button" onclick="location.href='/login'">Login</button>-->
           </div>
           % if current_datetime < local_test_datetime:
             <div class="sidebar-timer">

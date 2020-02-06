@@ -1,6 +1,6 @@
 <div id="arbisoft-content-container" class="enterprise-content" style="margin-top: 0;">
     <div class="centered-div">
-        <p style="font-weight: 800">
+        <p style="font-weight: 800; font-family: Didot, serif;">
             To attempt the online test, please login with the same email address you used when registering to the account. In-case there is a discrepancy, the system won't allow you to log in.
         </p>
     </div>
@@ -11,7 +11,7 @@
 <% if ( context.createAccountOption !== false && !context.syncLearnerProfileData && !(context.enterpriseName && context.currentProvider) ) { %>
 <div class="toggle-form">
     <span class="text"><%- gettext("First time here?") %></span>
-    <a href="#login" class="form-toggle" data-type="register"><%- gettext("Create an Account.") %></a>
+    <a tabindex="2" href="#login" class="form-toggle" data-type="register"><%- gettext("Create an Account.") %></a>
 </div>
 <% } %>
 
@@ -50,7 +50,7 @@
 
     <%= context.fields %>
 
-    <button type="submit" class="action action-primary action-update js-login login-button"><%- gettext("Sign in") %></button>
+    <button tabindex="1" type="submit" class="action action-primary action-update js-login login-button"><%- gettext("Sign in") %></button>
 
     <% if ( context.providers.length > 0 && !context.currentProvider || context.hasSecondaryProviders ) { %>
     <div class="login-providers">
