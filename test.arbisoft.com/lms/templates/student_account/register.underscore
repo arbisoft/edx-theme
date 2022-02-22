@@ -1,11 +1,3 @@
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Zhi+Mang+Xing">
-<style>
-  #register-p {
-    font-family: 'Zhi Mang Xing', cursive;
-  }
-</style>
-
 <div id="arbisoft-content-container" class="enterprise-content" style="margin-top: 0;">
     <div class="centered-div">
         <p id="register-p">

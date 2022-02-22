@@ -21,7 +21,8 @@ displayname = get_enterprise_learner_generic_name(request) or username
 %>
 
 <div class="nav-item hidden-mobile">
-    <a href="${reverse('dashboard')}" class="menu-title">
+<!--    <a href="${reverse('dashboard')}" class="menu-title">-->
+    <a href="/login" class="menu-title">
         <img class="user-image-frame" src="${profile_image_url}" alt="">
         <span class="sr-only">${_("Dashboard for:")}</span>
         <span class="username">${displayname}</span>

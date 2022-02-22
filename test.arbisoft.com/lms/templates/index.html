@@ -40,7 +40,7 @@ from student.models import CourseEnrollment
     <div class="holder">
         <div class="outer-container">
           <div class="left-col">
-            <h1>${_("{platform_name} on {time}").format(platform_name=platform_name,time=formated_time)}</h1>
+            <h1>${_("{platform_name} on {time}PST").format(platform_name=platform_name,time=formated_time[:-3])}</h1>
             <button type="submit" class="action action-primary register-button" onclick="location.href='/register'">Register</button>
 <!--            <button type="submit" class="action register-button" onclick="location.href='/login'">Login</button>-->
           </div>
