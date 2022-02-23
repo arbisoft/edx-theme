@@ -211,7 +211,8 @@ from student.models import CourseEnrollment
                     % if current_datetime < local_test_datetime:
                     <div class="test-due">
                       <p style="line-height: 2em">
-                          ${Text(_("Thank you for registering for the online test. To attempt the test, kindly click on the activation link which you have received via email after registration. You can attempt the test on {strong_start}28th February 2021 at 12:30pm{strong_end}.")).format(
+                          ${Text(_("Thank you for registering for the online test. To attempt the test, kindly click on the activation link which you have received via email after registration. You can attempt the test on {strong_start}{test_datetime}{strong_end}.")).format(
+                            test_datetime=test_datetime,
                             strong_start=HTML('<strong>'),
                               strong_end=HTML('</strong>'),
 
