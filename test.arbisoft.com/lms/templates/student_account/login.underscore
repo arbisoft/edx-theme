@@ -1,13 +1,6 @@
-<link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
-<style>
-  #login-p {
-    font-family: 'Teko', sans-serif;
-  }
-</style>
-
 <div id="arbisoft-content-container" class="enterprise-content" style="margin-top: 0;">
     <div class="centered-div">
-        <p id="login-p">
+        <p>
             To attempt the online test, please login with the same email address you used when registering to the account. In-case there is a discrepancy, the system won't allow you to log in.
         </p>
     </div>
@@ -40,7 +33,7 @@
 <% } else { %>
     <div class="button-block">
         <h2><%- gettext("Sign In") %></h2>
-        <span class="text">Please sing in with the registered email address and password.</span>
+        <span class="text">Please sign in with the registered email address and password. </span>
     </div>
 <% } %>
 
@@ -89,4 +82,8 @@
     </div>
     <% } %>
 </form>
+
+<span class="text">For any other queries please
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">click here</a>
+</span>
 
